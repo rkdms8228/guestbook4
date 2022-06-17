@@ -16,14 +16,14 @@
 		]]>
 	</select>
 	
-	<insert id="guestInsert">
+	<insert id="guestInsert" parameterType="com.javaex.vo.GuestbookVo">
 		<![CDATA[
 			insert into guestbook
 			values (seq_guestbook_no.nextval, #{name}, #{password}, #{content}, sysdate)
 		]]>
 	</insert>
 	
-	<delete id="guestDelete" parameterType="int">
+	<delete id="guestDelete" parameterType="com.javaex.vo.GuestbookVo">
 		<![CDATA[
 			delete from guestbook
 			where no = ${no}
@@ -31,7 +31,7 @@
 		]]>
 	</delete>
 
-	<select id="oneGuest" parameterType="int" resultType="com.javaex.vo..GuestbookVo">
+	<select id="oneGuest" parameterType="int" resultType="com.javaex.vo.GuestbookVo">
 		<![CDATA[
 			select no
 				   , name
