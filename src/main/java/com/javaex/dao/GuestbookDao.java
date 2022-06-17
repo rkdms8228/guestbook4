@@ -44,6 +44,16 @@ public class GuestbookDao {
 		
 	}
 	
+	//Guestbook 찾기
+	public GuestbookVo oneGuest(int no) {
+		
+		System.out.println("Dao>oneGuest");
+		GuestbookVo guestbookVo = sqlSession.selectOne("guestbook.oneGuest", no);
+		System.out.println(guestbookVo);
+		
+		return guestbookVo;
+		
+	}
 	//정보 삭제 메소드
 	public int guestDelete(int no, String password) {
 		
@@ -52,17 +62,6 @@ public class GuestbookDao {
 		System.out.println(count);
 		
 		return count;
-		
-	}
-	
-	//Guestbook 찾기
-	public GuestbookVo oneGuest(int delNo) {
-		
-		System.out.println("Dao>oneGuest");
-		GuestbookVo guestbookVo = sqlSession.selectOne("guestbook.oneGuest", delNo);
-		System.out.println(guestbookVo);
-		
-		return guestbookVo;
 		
 	}
 		
